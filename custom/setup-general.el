@@ -1,5 +1,6 @@
 (menu-bar-mode -1)
-(tool-bar-mode -1)
+(if window-system
+    (tool-bar-mode -1))
 
 (setq gc-cons-threshold 100000000)
 (setq inhibit-startup-message t)
@@ -17,12 +18,6 @@
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
 
-;; Compilation
-(global-set-key (kbd "<f5>") (lambda ()
-                               (interactive)
-                               (setq-local compilation-read-command nil)
-                               (call-interactively 'compile)))
-
 ;; setup GDB
 (setq
  ;; use gdb-many-windows by default
@@ -33,18 +28,18 @@
  )
 
 ;; company
-(use-package company
-  :init
-  (global-company-mode 1)
-  (delete 'company-semantic company-backends))
+;; (use-package company
+;;  :init
+;;  (global-company-mode 1)
+;;  (delete 'company-semantic company-backends))
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(control tab)] 'company-complete)
 
 ;; Package: projejctile
-(use-package projectile
-  :init
-  (projectile-global-mode)
-  (setq projectile-enable-caching t))
+;;(use-package projectile
+;;  :init
+;;  (projectile-global-mode)
+;;  (setq projectile-enable-caching t))
 
 ;; Package zygospore
 (use-package zygospore
