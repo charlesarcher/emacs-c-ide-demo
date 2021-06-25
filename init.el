@@ -13,12 +13,12 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(add-to-list 'load-path "/home/archerc/.emacs.d/custom")
-(add-to-list 'load-path "/home/archerc/tools/x86/share/emacs/site-lisp/")
+(add-to-list 'load-path "/home/carcher/.emacs.d/custom")
+(add-to-list 'load-path "/home/carcher/tools/x86/share/emacs/site-lisp/")
 
 (require 'setup-general)
 (require 'setup-helm)
-(require 'sr-speedbar)
+;(require 'sr-speedbar)
 (require 'magit)
 (require 'setup-c)
 (require 'setup-editing)
@@ -42,21 +42,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(company-show-numbers t)
+ '(c-noise-macro-names (quote ("constexpr")))
  '(grep-use-null-device nil)
  '(grep-use-null-filename-separator nil)
+ '(line-number-display-limit 1048576)
  '(package-selected-packages
    (quote
     (color-theme-solarized solarized-theme color-theme-sanityinc-solarized sr-speedbar zygospore helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clang-format clean-aindent-mode anzu))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;;'(company-preview-common ((t (:background "brightred"))))
- ;;'(company-scrollbar-bg ((t (:background "magenta"))))
  '(highlight ((t (:background "cyan"))))
- '(linum ((t (:background "yellow" :foreground "gray20" :inverse-video t :underline nil))))
+ '(line-number ((t (:background "blue" :foreground "yellow" :inverse-video nil :underline nil))))
+ '(line-number-current-line ((t (:inherit line-number :bold t))))
  '(secondary-selection ((t (:inherit helm-selection))))
  '(tool-bar ((t (:foreground "color-34" :box (:line-width 1 :style released-button))))))
 (put 'downcase-region 'disabled nil)

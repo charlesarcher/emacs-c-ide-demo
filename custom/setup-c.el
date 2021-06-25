@@ -90,8 +90,11 @@
 ;; “python”: What Python developers use for extension modules
 ;; “java”: The default style for java-mode (see below)
 ;; “user”: When you want to define your own style
-(setq c-default-style "Charles") "linux" ;; set style to "linux"
+;;(setq c-default-style "Charles") "linux" ;; set style to "linux"
+(setq-default c-default-style "linux")
 (custom-set-variables '(c-noise-macro-names '("constexpr")))
+(setq-default indent-tabs-mode t)
+
 ;;(use-package cc-mode
 ;;  :init
 ;;  (define-key c-mode-map  [(tab)] 'company-complete)

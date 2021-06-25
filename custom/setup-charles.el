@@ -4,11 +4,16 @@
 (setq compile-command "/usr/bin/time bash -c \"make -j32 && rc -J .\"")
 (setq grep-command "git --no-pager grep -n -e")
 (require 'linum)
-(global-linum-mode 1)
-(add-hook 'find-file-hook (lambda () (linum-mode 1)))
 (global-font-lock-mode 1)
+;; (global-linum-mode 1)
+;; (add-hook 'find-file-hook (lambda () (linum-mode 1)))
+;; (setq linum-format "%4d |")
 ;; (setq linum-format "%4d \u2502")
-(setq linum-format "%4d |")
+;;'(linum ((t (:background "yellow" :foreground "gray20" :inverse-video t :underline nil))))
+(display-line-numbers-mode t)
+;;(setq display-line-numbers "%4d |")
+(add-hook 'find-file-hook (lambda () (display-line-numbers-mode 1)))
+;;'(line-number ((t (:background "yellow" :foreground "gray20" :inverse-video t :underline nil))))
 
 (column-number-mode 1)
 
@@ -120,7 +125,7 @@
 (global-set-key [f5] 'query-replace)
 (global-set-key [f6] 'isearch-forward)
 (global-set-key [f7] 'isearch-backward)
-(global-set-key [f8] 'global-linum-mode)
+(global-set-key [f8] 'display-line-numbers-mode)
 (global-set-key [f9] 'magit-status)
 
 (global-set-key [(shift f3)]  'ggtags-find-other-symbol)
@@ -128,7 +133,7 @@
 (global-set-key [(shift f5)]  'ggtags-find-reference)
 (global-set-key [(shift f6)]  'ggtags-find-definition)
 (global-set-key [(shift f7)]  'ggtags-create-tags)
-(global-set-key [(shift f8)]  'ggtags-update-tags)
+(global-set-key [(shift f8)]  'git-gutter:toggle)
 (global-set-key [(shift f9)]  'pop-tag-mark)
 (global-set-key (kbd "C-<f6>")  'rtags-find-symbol-at-point)
 (global-set-key (kbd "C-<f9>")  'recompile)
@@ -137,7 +142,7 @@
 (global-set-key "%" 'match-paren)
 
 ;; Don't let magit take away my precious goto key
-;;(with-eval-after-load 'magit-mode
+;; with-eval-after-load 'magit-mode
 ;;  (define-key magit-file-mode-map (kbd "\C-xg") nil))
 
 
